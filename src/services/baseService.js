@@ -8,10 +8,10 @@ export class baseService {
             url: `${DOMAIN}/${url}`,
             method: "PUT",
             data: model,
-            headers: [
-                { 'Authorization': 'Bearer ' + localStorage.getItem(TOKEN) },
-                { TokenCybersoft: TOKEN_CYBERSOFT}
-            ]
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem(TOKEN),
+                TokenCybersoft: TOKEN_CYBERSOFT
+            }
 
         })
     }
@@ -20,29 +20,30 @@ export class baseService {
             url: `${DOMAIN}/${url}`,
             method: "POST",
             data: model,
-            headers: [
-                { 'Authorization': 'Bearer ' + localStorage.getItem(TOKEN) }, //JWT
-                { TokenCybersoft: TOKEN_CYBERSOFT, }
-            ]
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem(TOKEN),
+                TokenCybersoft: TOKEN_CYBERSOFT
+            }
         })
     }
     get = (url) => {
         return axios({
             url: `${DOMAIN}/${url}`,
             method: "GET",
-            headers: [
-                { TokenCybersoft: TOKEN_CYBERSOFT},
-                { 'Authorization': 'Bearer ' + localStorage.getItem(TOKEN) }, //JWT
-            ]
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem(TOKEN),
+                TokenCybersoft: TOKEN_CYBERSOFT
+            }
         })
     }
     delete = (url) => {
         return axios({
             url: `${DOMAIN}/${url}`,
             method: "DELETE",
-            headers: [{ 'Authorization': 'Bearer ' + localStorage.getItem(TOKEN) }, //JWT
-            { TokenCybersoft: TOKEN_CYBERSOFT, }
-            ]
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem(TOKEN),
+                TokenCybersoft: TOKEN_CYBERSOFT
+            }
         })
     }
 }

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { quanLyPhimService } from '../../services/QuanLyPhimService';
+// import { quanLyPhimService } from '../../services/QuanLyPhimService';
 import { DOMAIN, } from '../../util/settings/config';
 import { SET_CAROUSEL } from './types/CarouselType';
 
@@ -19,7 +19,7 @@ export const getCarouselAction = () =>{
             //sử dụng tham số
             // const result = await quanLyPhimService.layDanhSachBanner();
 
-            console.log(result);
+            // console.log(result);
             
             dispatch({
                 type: SET_CAROUSEL,

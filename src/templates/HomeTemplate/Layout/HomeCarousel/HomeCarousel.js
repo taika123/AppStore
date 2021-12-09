@@ -13,7 +13,7 @@ const HomeCarousel = (props) => {
 
     const { arrImg } = useSelector(state => state.CarouselReducer)
 
-    console.log('arrIMG',arrImg)
+    // console.log('arrIMG',arrImg)
     const dispatch = useDispatch();
 
     //sẽ tự kích hoạt khi components load ra 
@@ -51,8 +51,8 @@ const HomeCarousel = (props) => {
 
         // const action = getCarouselAction(1);
         dispatch(getCarouselAction())
-        console.log(getCarouselAction())
-    }, [])
+        // console.log(getCarouselAction())
+    }, [dispatch])
 
     const contentStyle = {
         height: '600px',
