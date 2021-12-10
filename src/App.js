@@ -32,7 +32,7 @@ function App() {
           <HomeTemplate path="/profile" exact Component={Profile}/>
           <HomeTemplate path="/" exact Component={Home}/>
 
-          <Suspense fallback={<h1> Loading ...</h1>}>
+          <Suspense fallback={ <Loading />}>
             <CheckoutTemplateLazy path="/checkout/:id" exact Component={Checkout}/>
           </Suspense>
         </Switch>

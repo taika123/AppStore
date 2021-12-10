@@ -1,9 +1,12 @@
 // import { Carousel } from 'antd';
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 import { Route } from 'react-router';
 
 
 export const UserTemplate = (props) => {//path, exact, Component
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    },[])
 
     const { Component, ...restProps } = props;
 

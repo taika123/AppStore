@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { datVeAction, layChiTietPhongVeAction } from '../../redux/actions/QuanLyDatVeAction'
 import style from './Checkout.module.css'
-import { CheckOutlined, CloseOutlined, SmileOutlined, UserOutlined } from '@ant-design/icons'
+import { CheckOutlined, CloseOutlined, HomeOutlined, SmileOutlined, UserOutlined } from '@ant-design/icons'
 import './Checkout.css'
 import { DAT_VE } from '../../redux/actions/types/QuanLyDatVeType'
 import _ from 'lodash'
@@ -12,6 +12,11 @@ import moment from 'moment'
 import { layThongTinNguoiDungAction } from '../../redux/actions/QuanLyNguoiDungAction'
 import { connecttion } from '../..'
 import {datGheAction} from '../../redux/actions/QuanLyDatVeAction'
+import {history} from '../../App'
+import { TOKEN, USER_LOGIN } from '../../util/settings/config'
+import { NavLink } from 'react-router-dom'
+
+
 const { TabPane } = Tabs;
 
 
@@ -221,10 +226,36 @@ export default function DEMO(props) {
     const { tabActive } = useSelector(state => state.QuanLyDatVeReducer)
     
     const dispatch = useDispatch();
-    console.log('tabActive',tabActive); 
+    console.log('tabActive',tabActive);
+    
+    const { userLogin} = useSelector(state => state.QuanLyNguoiDungReducer)
+
+    React.useEffect(() => {
+        return () => {
+            dispatch({
+                type:"CHANGE_TAB_ACTIVE",
+                number:1,
+            })
+        }
+    })
+    
+    const operations = <Fragment>
+                {!_.isEmpty(userLogin) ? <Fragment><button 
+                    onClick={() => {
+                        history.push('/profile');
+                    }}
+                >Hello : {userLogin.taiKhoan} <div style={{width:50, height:50,display:'flex', justifyContent: 'center', alignItems: 'center'}} className="ml-5 rounded-full bg-yellow-300">{userLogin.taiKhoan.substr(0,1)}</div> </button> <button className="text-blue-500" onClick={() =>{
+                    localStorage.removeItem(USER_LOGIN)
+                    localStorage.removeItem(TOKEN)
+                    history.push('/home');
+                    window.location.reload();
+                }}>Đăng Xuất</button></Fragment>: ""} 
+
+        </Fragment>
+
 
     return <div>
-        <Tabs defaultActiveKey="1" activeKey={tabActive.toString()} onChange={(callback) => { 
+        <Tabs tabBarExtraContent={operations}  defaultActiveKey="1" activeKey={tabActive.toString()} onChange={(callback) => { 
             console.log(callback);
             dispatch({
                 type:"CHANGE_TAB_ACTIVE",
@@ -236,6 +267,9 @@ export default function DEMO(props) {
             </TabPane>
             <TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
                 <KetQuaDatVe {...props} />
+            </TabPane>
+            <TabPane tab={<NavLink to="/"><HomeOutlined /></NavLink>} key="3">
+                
             </TabPane>
         </Tabs>
     </div>
@@ -281,9 +315,9 @@ function KetQuaDatVe(props) {
     }
 
     return <div className="p-5">
-        <h3>Kết quả đặt vé</h3>
+        {/* <h3>Kết quả đặt vé</h3> */}
         <section className="text-gray-600 body-font">
-            <div className="container px-5 py-24 mx-auto">
+            <div className="container px-5 py-10 mx-auto">
                 <div className="flex flex-col text-center w-full mb-20">
                     <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-purple-900">Lịch sử đặt vé khách hàng</h1>
                     <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Hãy xem thông tin địa điểm và thời gian để xem phim vui vẻ nhé !!!!</p>

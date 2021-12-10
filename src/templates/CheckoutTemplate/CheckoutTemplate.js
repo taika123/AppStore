@@ -1,10 +1,13 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 import {Route, Redirect} from 'react-router';
 import { USER_LOGIN } from '../../util/settings/config';
 
 
 
 const CheckoutTemplate = (props) => {//path, exact, Component
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    })
 
     const {Component, ...restProps} = props;
     // chuyển trang login nếu chưa login

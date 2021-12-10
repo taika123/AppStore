@@ -99,6 +99,6 @@ export const datGheAction = (item, maLichChieu) => {
         danhSachGheDangDat = JSON.stringify(danhSachGheDangDat)
 
         //call signalR
-        connecttion.invoke('datGhe', taiKhoan,danhSachGheDangDat, maLichChieu)
+        // connecttion.invoke('datGhe', taiKhoan,danhSachGheDangDat, maLichChieu)
     }
 }

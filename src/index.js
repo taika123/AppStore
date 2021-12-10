@@ -13,8 +13,12 @@ import "slick-carousel/slick/slick-theme.css";
 
 import {DOMAIN } from "./util/settings/config"
 
+//import đa ngôn ngữ
+import './i18n';
+
 //cấu hình realtime (websocket với signalR)
 import * as signalR from "@aspnet/signalr"
+
 
 //kết nối đến serve lắng nghe sự kiện từ serve = websocket
 export const connecttion = new signalR.HubConnectionBuilder().withUrl(`${DOMAIN}/DatVeHub`).configureLogging(signalR.LogLevel.Information).build();

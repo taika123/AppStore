@@ -23,6 +23,7 @@ export default function Detail(props) {
         //lấy thông tin dữ liệu từ params
         let { id } = props.match.params
         dispatch(layThongTinChiTietPhim(id))
+        window.scrollTo(0, 0)
     }, [])
 
     return (
