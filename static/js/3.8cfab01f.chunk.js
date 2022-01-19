@@ -1,0 +1,2 @@
+(this["webpackJsonpmovie-project"]=this["webpackJsonpmovie-project"]||[]).push([[3],{2096:function(e,t,c){"use strict";c.r(t);var n=c(19),o=c(131),r=c(0),j=c(41),a=c(31),s=c(5),b=["Component"];t.default=function(e){Object(r.useEffect)((function(){window.scrollTo(0,0)}));var t=e.Component,c=Object(o.a)(e,b);return localStorage.getItem(a.e)?Object(s.jsx)(j.b,Object(n.a)(Object(n.a)({},c),{},{render:function(e){return Object(s.jsx)(r.Fragment,{children:Object(s.jsx)(t,Object(n.a)({},e))})}})):Object(s.jsx)(j.a,{to:"/login"})}}}]);
+//# sourceMappingURL=3.8cfab01f.chunk.js.map
