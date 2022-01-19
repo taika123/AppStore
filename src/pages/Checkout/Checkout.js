@@ -226,7 +226,7 @@ export default function DEMO(props) {
     const { tabActive } = useSelector(state => state.QuanLyDatVeReducer)
     
     const dispatch = useDispatch();
-    console.log('tabActive',tabActive);
+    // console.log('tabActive',tabActive);
     
     const { userLogin} = useSelector(state => state.QuanLyNguoiDungReducer)
 
@@ -237,7 +237,7 @@ export default function DEMO(props) {
                 number:1,
             })
         }
-    })
+    },[])
     
     const operations = <Fragment>
                 {!_.isEmpty(userLogin) ? <Fragment><button 

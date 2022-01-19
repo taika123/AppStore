@@ -38,7 +38,7 @@ export const dangNhapAction = (thongTinDangNhap) => {
                 })
             }
             //chuyển hướng đăng nhập về trang trước đó
-            history.goBack()
+            history.push('/home')
 
         } catch (err) {
             console.error('error', err.response.data)
@@ -81,7 +81,25 @@ export const layThongTinNguoiDungAction = (thongDangNhap) => {
 }
 
 
+export const dangKy = (postRequest) => {
+    return async(dispatch) => {
+        try {
+            const result = await quanLyNguoiDungService.dangKy(postRequest)
+            console.log('dangKy',result);
 
+            // if (result.data.statusCode === 200) {
+            //     dispatch({
+            //         type: DANG_KY_TYPE,
+            //         dangKy: result.data.content,
+            //     })
+            // }
+             //chuyển hướng đăng nhập về trang trước đó
+             history.push('/login')
+        }catch (err) {
+            console.error('error', err.response.data)
+        }
+    }
+}
 
 
 

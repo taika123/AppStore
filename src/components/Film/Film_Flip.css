@@ -37,3 +37,8 @@
     color: white;
     transform: rotateY(180deg);
   }
+
+.ant-modal-content{
+  width: 800px;
+  max-height: 600px;
+}

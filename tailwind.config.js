@@ -187,6 +187,7 @@ module.exports = {
     },
     content: {
       none: 'none',
+      // "./node_modules/@themesberg/flowbite/**/*.js",
     },
     cursor: {
       auto: 'auto',
@@ -975,5 +976,8 @@ module.exports = {
     wordBreak: ['responsive'],
     zIndex: ['responsive', 'focus-within', 'focus'],
   },
-  plugins: [],
+  plugins: [
+    
+  ],
+  
 }
