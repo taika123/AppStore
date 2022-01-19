@@ -2,7 +2,7 @@
   "name": "movie-project",
   "version": "0.1.0",
   "private": true,
-  "homepage":  "https://taika123.github.io/AppStore",
+  
   "dependencies": {
     "@craco/craco": "^6.4.0",
     "@reduxjs/toolkit": "^1.6.2",
